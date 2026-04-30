@@ -1,0 +1,31 @@
+server:
+  port: 8888
+spring:
+  application:
+    name: curso-java
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3307/fazol?useTimezone=true&serverTimezone=UTC
+    username: root
+    password: admin123
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: false
+    open-in-view: false
+    properties:
+      hibernate:
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+    locations: classpath:db/migration
+    validate-on-migrate: false
+cors:
+  originPatterns: "http://localhost:3000,http://localhost:8888,https://ariel.com.br"
+logging:
+  level:
+    br.com.ariel: DEBUG
+spring-doc:
+  paths-to-match: /api/**/v1/**
+  swagger-ui:
+    user-root-path: true
